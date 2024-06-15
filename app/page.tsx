@@ -1,72 +1,48 @@
 "use client";
 
-import Image from "next/image";
-import c24Wordmark from "../public/c24-wordmark.svg";
-import Arrow from "../public/arrow-white.png";
-
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Canvas from "./components/Canvas";
+import Sparkle from "@/app/components/Sparkle";
+import { Container } from "@/app/components/container";
+import { Footer } from "@/app/components/footer/Footer";
+import { Header } from "@/app/components/header";
+import Sponsors from "@/app/sections/Sponsors";
+import Statistic from "@/app/sections/Statistic";
+import { Button } from "./components/button";
+import Hero from "./sections/Hero";
+import Manifesto from "./sections/Manifesto";
+import Speaker from "./sections/Speaker";
+import Video from "./sections/Video";
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <Canvas />
-      <div className="w-full h-screen flex justify-center items-center">
-        <div>
-          <div className="w-full flex justify-center">
-            <div className="relative w-[200px] h-[100px] md:w-[500px] md:h-[200px]">
-              <Image
-                src={c24Wordmark}
-                alt="TUM Blockchain Conference 24"
-                fill={true}
-              />
+    <div className={"overflow-x-hidden"}>
+      <Header />
+      <Sparkle />
+      <main className={"w-full flex justify-center pt-[25px] lg:pt-0 z-20"}>
+        <Container>
+          <div className={"flex flex-col max-w-7xl z-10"}>
+            <Hero />
+            <div className={"flex flex-col pb-24 gap-32"}>
+              <Video />
+              <Statistic />
+              <Manifesto />
+              <Speaker />
+              <Sponsors />
+              <div className="w-full flex justify-center">
+                <Button buttonType={"primary"} asChild>
+                  <a
+                    href={"https://www.tum-blockchain.com/conference2023"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Throwback 2023
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
-          <p className="w-full text-center mt-12 text-xs md:text-xl">
-            Munich, Deutsches Museum
-          </p>
-          <p className="w-full text-center mt-2 text-xs md:text-xl">
-            September 12th - 13th
-          </p>
-          <p className="w-full text-center mt-12 text-xs md:text-base">
-            Last Year's Conference
-          </p>
-          <div className="flex items-center space-x-3 md:space-x-8 mt-6">
-            <div>
-              <p className="md:text-2xl w-full text-center">1000+</p>
-              <p className="text-xs md:text-base">Attendees</p>
-            </div>
-            <div className="h-8 w-0.5 bg-neutral-500" />
-            <div>
-              <p className="md:text-2xl w-full text-center">100+</p>
-              <p className="text-xs md:text-base">Speakers</p>
-            </div>
-            <div className="h-8 w-0.5 bg-neutral-500" />
-            <div>
-              <p className="md:text-2xl w-full text-center">40+</p>
-              <p className="text-xs md:text-base">Talks</p>
-            </div>
-            <div className="h-8 w-0.5 bg-neutral-500" />
-            <div>
-              <p className="md:text-2xl w-full text-center">20+</p>
-              <p className="text-xs md:text-base">Sponsors</p>
-            </div>
-          </div>
-          <div className="w-full mt-10">
-            <a
-              className="flex items-center"
-              href="#tally-open=wAlAek&tally-emoji-text=👋&tally-emoji-animation=wave"
-            >
-              <p className="cursor-pointer text-sm md:text-base w-full text-center">
-                Join Waitlist
-              </p>
-            </a>
-          </div>
-        </div>
-      </div>
+        </Container>
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }
