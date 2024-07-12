@@ -113,3 +113,30 @@ body {
     theme("colors.tbc-blue")
   );
 }
+
+#footer::after {
+  content: "";
+  position: absolute;
+  z-index: -10;
+  min-height: 500px;
+  width: 100%;
+  background-image: linear-gradient(
+    to right bottom,
+    theme("colors.tbc-yellow"),
+    theme("colors.tbc-pink"),
+    theme("colors.tbc-blue")
+  );
+}
+
+.line-anim {
+  animation: lineAnim 4s linear infinite;
+}
+
+@keyframes lineAnim {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
