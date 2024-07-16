@@ -1,9 +1,5 @@
-"use client";
-
 import Sparkle from "@/app/components/Sparkle";
 import { Container } from "@/app/components/container";
-import { Footer } from "@/app/components/footer/Footer";
-import { Header } from "@/app/components/header";
 import Sponsors from "@/app/sections/Sponsors";
 import Statistic from "@/app/sections/Statistic";
 import Image from "next/image";
@@ -22,8 +18,7 @@ import Video from "./sections/Video";
 
 export default function Home() {
   return (
-    <div className={"overflow-x-hidden"}>
-      <Header />
+    <div>
       <Sparkle />
       <main className={"w-full flex justify-center pt-[25px] lg:pt-0 z-20"}>
         <Container>
@@ -65,7 +60,6 @@ export default function Home() {
           </div>
         </Container>
       </main>
-      <Footer />
     </div>
   );
 }
